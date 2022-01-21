@@ -1,0 +1,34 @@
+{
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
+  "plugins": ["flowtype", "compat"],
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "polyfills": ["fetch"]
+  },
+  "rules": {
+    "semi": [2, "always"],
+    "no-unexpected-multiline": 2,
+    "compat/compat": 2,
+    "jsx-quotes": [2, "prefer-single"],
+    "react/jsx-one-expression-per-line": "off",
+    "import/no-import-module-exports": [
+      "error",
+      {
+        "exceptions": ["**/*/*.js", "**/*/*.jsx"]
+      }
+    ],
+    "flowtype/no-types-missing-file-annotation": 0,
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "default-param-last": "off"
+  }
+}
