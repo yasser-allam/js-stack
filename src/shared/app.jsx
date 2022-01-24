@@ -28,5 +28,4 @@ const App = (): React$Element<any> => (
   </div>
 );
 
-
 export default App;
