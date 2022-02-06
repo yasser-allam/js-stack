@@ -1,15 +1,26 @@
 version: 2.1
 
 orbs:
-  codecov: codecov/codecov@3.2.2
+  codecov: circleci/node@4.7
+
+workflows:
+  test-build:
+    jobs:
+      - test
+      - build
 
 jobs:
-  build:
+  test:
     docker:
-      - image: cimg/node:17.3.0
+      - image: node:17
     steps:
       - checkout
-      - run: |
-          npm install
-          npm test
-          npm run prod:build
+      - run: yarn
+      - run: yarn test
+  build:
+    docker:
+      - image: node:17
+    steps:
+      - checkout
+      - run: yarn
+      - run: yarn prod:build
